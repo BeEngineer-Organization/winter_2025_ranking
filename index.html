@@ -21,7 +21,7 @@
         letter-spacing: 2px;
     }
 
-    .ranking {
+    .ranking, .past_quest {
         max-width: 550px;
         margin: 0 auto;
         background: white;
@@ -29,6 +29,19 @@
         border-radius: 20px;
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         border: 3px solid #9bbcff;
+    }
+
+    .past_quest{
+        margin-top: 36px;
+    }
+
+    .past_quest a{
+        color: #1b00e5;
+        /* text-decoration: none; */
+    }
+
+    .past_quest h2{
+        text-align: center;
     }
 
     .item {
@@ -112,26 +125,45 @@
 
 <h1>Winterクエスト<br>👑 ランキング 👑</h1>
 
+<p style="text-align: center;">11/16 15:30更新</p>
+
 <div class="ranking" id="ranking-container"></div>
 
+
 <a class="link-button" href="https://lp.be-engineer.tech/pages/winter_2025.html" target="_blank">
-    ▶ Winterクエスト特設ページはこちら
+    ▶ 冬イベント講座はこちら
 </a>
+
+<div class="past_quest">
+    <h2>問題</h2>
+    <p><a target="_blank" href="https://x.gd/QmdkD">第1問</a>（提出期限：11月16日）</p>
+    <p><a target="_blank" href="https://x.gd/Zgl3g">第2問</a>（提出期限：11月23日）</p>
+    <!-- <p><a target="_blank" href="">第3問</a>（提出期限：11月30日）</p>
+    <p><a target="_blank" href="">第4問</a>（提出期限：12月7日）</p>
+    <p><a target="_blank" href="">第5問</a>（提出期限：12月14日）</p> -->
+</div>
 
 <script>
 // ▼ ランキングデータ（辞書型の配列）
 const data = [
+    { name: "Rally3", score: 10 },
     { name: "クロア", score: 10 },
     { name: "豆腐地獄", score: 10 },
     { name: "Merumo", score: 10 },
-    { name: "あ", score: 10 },
-    { name: "K.N", score: 10 },
     { name: "いちご", score: 10 },
+    { name: "K.N", score: 10 },
+    { name: "あ", score: 10 },
+    { name: "りん", score: 10 },
+    { name: "pokota", score: 10 },
     { name: "Yuto", score: 10 },
     { name: "ryoga", score: 10 },
-    { name: "呂不韋", score: 10 },
+    { name: "151番目の素数", score: 10 },
     { name: "tomo", score: 10 },
-    { name: "ハチ", score: 10 }
+    { name: "ハチ", score: 10 },
+    { name: "Sato", score: 10 },
+    { name: "呂不韋", score: 10 },
+    { name: "あっくん", score: 10 },
+    { name: "なほみ", score: 10 },
 ];
 
 // ▼ 点数順にまずソート（降順）
