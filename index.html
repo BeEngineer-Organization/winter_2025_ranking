@@ -125,7 +125,7 @@
 
 <h1>Winterクエスト<br>👑 ランキング 👑</h1>
 
-<p style="text-align: center;">11/16 15:30更新</p>
+<p style="text-align: center;">11/21 15:30更新</p>
 
 <div class="ranking" id="ranking-container"></div>
 
@@ -146,25 +146,30 @@
 <script>
 // ▼ ランキングデータ（辞書型の配列）
 const data = [
-    { name: "Rally3", score: 10 },
-    { name: "クロア", score: 10 },
-    { name: "豆腐地獄", score: 10 },
-    { name: "Merumo", score: 10 },
-    { name: "いちご", score: 10 },
-    { name: "K.N", score: 10 },
-    { name: "あ", score: 10 },
-    { name: "りん", score: 10 },
-    { name: "pokota", score: 10 },
-    { name: "Yuto", score: 10 },
-    { name: "ryoga", score: 10 },
-    { name: "151番目の素数", score: 10 },
-    { name: "tomo", score: 10 },
-    { name: "ハチ", score: 10 },
-    { name: "Sato", score: 10 },
-    { name: "呂不韋", score: 10 },
-    { name: "あっくん", score: 10 },
-    { name: "なほみ", score: 10 },
-];
+{name: '豆腐地獄', score:20},
+{name: 'Merumo', score:20},
+{name: 'あ', score:20},
+{name: 'ryoga', score:20},
+{name: 'tomo', score:20},
+{name: '4倍濃縮醤油', score:20},
+{name: 'pokotan ', score:20},
+{name: 'あっくん', score:20},
+{name: 'いけひろ', score:20},
+{name: 'なほみ', score:20},
+{name: 'ハオニー', score:10},
+{name: 'Rally3', score:10},
+{name: 'クロア', score:10},
+{name: 'いちご', score:10},
+{name: 'K.N', score:10},
+{name: 'りん', score:10},
+{name: 'ran', score:10},
+{name: 'pokota', score:10},
+{name: 'Yuto', score:10},
+{name: '151番目の素数', score:10},
+{name: 'ハチ', score:10},
+{name: 'Sato', score:10},
+{name: '呂不韋', score:10},
+]
 
 // ▼ 点数順にまずソート（降順）
 data.sort((a, b) => b.score - a.score);
@@ -176,10 +181,14 @@ for (let i = 0; i < data.length; i++) {
         // 前の人と同点 → 同順位
         data[i].rank = data[i - 1].rank;
     } else {
-        // 新しい順位
+        // 新しい点数のグループ → 次の順位
         data[i].rank = currentRank;
     }
-    currentRank++;
+
+    // dense ranking：順位を「次の順位」に進めるが人数を飛ばさない
+    if (i < data.length - 1 && data[i + 1].score !== data[i].score) {
+        currentRank++;
+    }
 }
 
 // ▼ ランキング表示先
